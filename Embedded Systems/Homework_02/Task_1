@@ -1,0 +1,59 @@
+#ifndef F_CPU
+#define F_CPU 16000000UL
+#endif
+
+#include <avr/io.h>
+#include <util/delay.h>
+#include <avr/interrupt.h>
+
+#include "serial.h"
+
+volatile uint8_t pin;
+volatile uint16_t us_measurement;
+
+void ir_measure ()
+{
+	//define pin
+	pin = (1 << MUX2);
+	// set VCC and left justification
+	ADMUX |= (1 << REFS0) | pin | (1 << ADLAR);
+
+	// ADPS 2, 1, 0 -> division factor of 128
+	ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
+
+	// enable conversion and enable interrupts for conversion
+	ADCSRA |= (1 << ADEN);
+	 
+	// initial conversion
+	ADCSRA |= (1 << ADSC) | (1 << ADIE);
+
+	// sets I-bit
+	sei();
+}
+
+// ADC_vect -> ADC conversion complete interrupt
+ISR(ADC_vect)
+{
+	if(pin == ((ADMUX & (1 << MUX0)) | (ADMUX & (1 << MUX1)) | (ADMUX & (1 << MUX2)) | (ADMUX & (1 << MUX3))))
+	{
+		us_measurement = ADCH;
+
+		uart_putint(us_measurement);
+		uart_putchar('\n');
+	}	
+}
+
+int main ()
+{
+	uart_init();
+	
+	ir_measure();
+
+	while(1)
+	{	
+		ADCSRA |= (1 << ADSC);
+		_delay_ms(1000);
+	}
+
+	return 0;
+}

@@ -1,0 +1,71 @@
+class Main{
+    function void main(){
+        var BST A;
+        var Node root, temp;
+
+        do Output.printString("Novo stablo s rootom: 15");
+        do Output.println();
+        let A = BST.new(15);
+        let root = A.GetRoot();
+
+        do Output.printString("Insertani brojevi: 10, 7, 5, 12, 13, 20, 18, 17, 16, 22, 25.");
+        do Output.println();
+        do A.Insert(10);
+        do A.Insert(7);
+        do A.Insert(5);
+        do A.Insert(12);
+        do A.Insert(13);
+        do A.Insert(20);
+        do A.Insert(18);
+        do A.Insert(17);
+        do A.Insert(16);
+        do A.Insert(22);
+        do A.Insert(25);
+
+        do BST.InorderPrint(root);
+        do Output.println();
+
+        do Output.printString("Obrisana 10ka.");
+        do Output.println();
+        do A.Delete(10);
+        
+        do BST.InorderPrint(root);
+        do Output.println();
+
+        do Output.printString("Obrisana 12ica.");
+        do Output.println();
+        do A.Delete(12);
+        
+        do BST.InorderPrint(root);
+        do Output.println();
+
+        do Output.printString("Obirsana 20ica.");
+        do Output.println();
+        do A.Delete(20);
+        
+        do BST.InorderPrint(root);
+        do Output.println();
+
+        do Output.printString("Insertano: 21, 11, 16.");
+        do Output.println();
+        do A.Insert(21);
+        do A.Insert(11);
+        do A.Insert(26);
+
+        do BST.InorderPrint(root);
+        do Output.println();
+
+        do Output.printString("Obrisana 22ka.");
+        do Output.println();
+        do A.Delete(22);
+
+        do BST.InorderPrint(root);
+        do Output.println();
+
+        do Output.printString("Clearanje stabla.");
+        do Output.println();
+        do A.Dispose(root);
+
+        return;
+    }
+}

@@ -1,0 +1,179 @@
+class Main{
+    function void main(){
+        var PQueue A;
+        var Vector MyVec;
+        let A = PQueue.new(10);
+
+        do A.Enqueue(15);
+        do Output.printString("PQueue sadrzi: 10, 15.");
+        do Output.printString(" - ");
+        do Output.printString("Peek(): ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+        do A.Enqueue(12);
+        do Output.printString("PQueue sadrzi: 10, 15, 12.");
+        do Output.printString(" - ");
+        do Output.printString("Peek(): ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+        do A.Enqueue(20);
+        do Output.printString("PQueue sadrzi: 10, 15, 12, 20.");
+        do Output.printString(" - ");
+        do Output.printString("Peek(): ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+        let MyVec = A.GetStruct();
+        do Output.printString("Cijeli PQueue: ");
+        do Output.printInt(MyVec.Get(1));
+        do Output.printString(" ");
+        do Output.printInt(MyVec.Get(2));
+        do Output.printString(" ");
+        do Output.printInt(MyVec.Get(3));
+        do Output.printString(" ");
+        do Output.printInt(MyVec.Get(4));
+        do Output.printString(" ");
+        do Output.println();
+
+        do A.Dequeue();
+        do Output.printString("Peek nakon Dequeue: ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+        let MyVec = A.GetStruct();
+        do Output.printString("Cijeli PQueue: ");
+        do Output.printInt(MyVec.Get(1));
+        do Output.printString(" ");
+        do Output.printInt(MyVec.Get(2));
+        do Output.printString(" ");
+        do Output.printInt(MyVec.Get(3));
+        do Output.printString(" ");
+        do Output.println();
+
+        do A.Dequeue();
+        
+        do Output.printString("Peek nakon Dequeue: ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+
+        let MyVec = A.GetStruct();
+        do Output.printString("Cijeli PQueue: ");
+        do Output.printInt(MyVec.Get(1));
+        do Output.printString(" ");
+        do Output.printInt(MyVec.Get(2));
+        do Output.printString(" ");
+        do Output.println();
+
+        do A.Dequeue();
+        
+        do Output.printString("Peek nakon Dequeue: ");
+        do Output.printInt(MyVec.Get(1));
+        do Output.printString(" ");
+        do Output.println();
+
+
+        let MyVec = A.GetStruct();
+        do Output.printString("Cijeli PQueue: ");
+        do Output.printInt(MyVec.Get(1));
+        do Output.println();
+
+        do A.Dequeue();
+        
+        do Output.printString("Peek nakon Dequeue: ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+        
+        do Output.printString("PQueue je prazan.");
+        do Output.println();
+        
+        //Zakomentirano jer se u jacku overwritea
+        do A.Enqueue(25);
+        do Output.printString("PQueue sadrzi: 25.");
+        do Output.printString(" - ");
+        do Output.printString("Peek(): ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+        do A.Enqueue(17);
+        do Output.printString("PQueue sadrzi: 25, 17.");
+        do Output.printString(" - ");
+        do Output.printString("Peek(): ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+        do A.Enqueue(32);
+        do Output.printString("PQueue sadrzi: 25, 17, 32.");
+        do Output.printString(" - ");
+        do Output.printString("Peek(): ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+        do A.Enqueue(19);
+        do Output.printString("PQueue sadrzi: 25, 17, 32, 19.");
+        do Output.printString(" - ");
+        do Output.printString("Peek(): ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+        let MyVec = A.GetStruct();
+        do Output.printString("Cijeli PQueue: ");
+        do Output.printInt(MyVec.Get(1));
+        do Output.printString(" ");
+        do Output.printInt(MyVec.Get(2));
+        do Output.printString(" ");
+        do Output.printInt(MyVec.Get(3));
+        do Output.printString(" ");
+        do Output.printInt(MyVec.Get(4));
+        do Output.printString(" ");
+        do Output.println();
+
+        do A.Dequeue();
+        do Output.printString("Peek nakon Dequeue: ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+        let MyVec = A.GetStruct();
+        do Output.printString("Cijeli PQueue: ");
+        do Output.printInt(MyVec.Get(1));
+        do Output.printString(" ");
+        do Output.printInt(MyVec.Get(2));
+        do Output.printString(" ");
+        do Output.printInt(MyVec.Get(3));
+        do Output.printString(" ");
+        do Output.println();
+
+        do A.Dequeue();
+        
+        do Output.printString("Peek nakon Dequeue: ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+
+        let MyVec = A.GetStruct();
+        do Output.printString("Cijeli PQueue: ");
+        do Output.printInt(MyVec.Get(1));
+        do Output.printString(" ");
+        do Output.printInt(MyVec.Get(2));
+        do Output.printString(" ");
+        do Output.println();
+
+        do A.Dequeue();
+        
+        do Output.printString("Peek nakon Dequeue: ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+
+        let MyVec = A.GetStruct();
+        do Output.printString("Cijeli PQueue: ");
+        do Output.printInt(MyVec.Get(1));
+        do Output.printString(" ");
+        do Output.println();
+        do A.Dequeue();
+        
+        return;
+    }
+}

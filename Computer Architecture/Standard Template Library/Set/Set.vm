@@ -1,0 +1,80 @@
+function Set.new 0
+push constant 1
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+call BST.new 1
+pop this 0
+push pointer 0
+return
+function Set.exists 0
+push argument 0
+pop pointer 0
+push this 0
+push argument 1
+call BST.Search 2
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push constant 0
+not
+return
+function Set.Delete 0
+push argument 0
+pop pointer 0
+push this 0
+push argument 1
+call BST.Delete 2
+pop temp 0
+push constant 0
+return
+function Set.Insert 0
+push argument 0
+pop pointer 0
+push this 0
+push argument 1
+call BST.Insert 2
+pop temp 0
+push constant 0
+return
+function Set.GetCapacity 1
+push argument 0
+pop pointer 0
+push this 0
+call BST.GetCapacity 1
+pop local 0
+push local 0
+return
+function Set.Dispose 1
+push argument 0
+pop pointer 0
+push this 0
+call BST.GetRoot 1
+pop local 0
+push this 0
+push local 0
+call BST.Dispose 2
+pop temp 0
+push constant 0
+return
+function Set.GetStruct 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Set.PrintSet 1
+push argument 0
+pop pointer 0
+push this 0
+call BST.GetRoot 1
+pop local 0
+push local 0
+call BST.InorderPrint 1
+pop temp 0
+push constant 0
+return

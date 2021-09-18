@@ -1,0 +1,114 @@
+class List{
+    field Node First, Last;
+    field int Capacity;
+
+    constructor List new(int value){
+        var Node temp;
+        let temp = Node.new(value);
+        
+        let First = temp;
+        let Last = temp;
+        let Capacity = 1;
+
+        return this;
+    }
+
+    method void InsertFront(int value){
+        var Node temp;
+        let temp = Node.new(value);
+
+        if(Capacity = 0){
+            let Last = temp;
+            let First = temp;
+            let Capacity = Capacity + 1;
+            return;
+        }
+
+        do First.SetPrevious(temp);
+        do Last.SetNext(temp);
+        do temp.SetPrevious(Last);
+        do temp.SetNext(First);
+        let First = temp;
+        let Capacity = Capacity + 1;
+
+        return;
+    }
+
+    method void InsertBack(int value){
+        var Node temp;
+        let temp = Node.new(value);
+
+        if(Capacity = 0){
+            let Last = temp;
+            let First = temp;
+            let Capacity = Capacity + 1;
+            return;
+        }
+
+        do First.SetPrevious(temp);
+        do Last.SetNext(temp);
+        do temp.SetPrevious(Last);
+        do temp.SetNext(First);
+        let Last = temp;
+        let Capacity = Capacity + 1;
+
+        return;
+    }
+
+    method int GetFront(){
+        var Node temp;
+        let temp = First;
+        return temp.GetValue();
+    }
+
+    method int GetBack(){
+        var Node temp;
+        let temp = First;
+        return temp.GetValue();
+    }
+
+    method void PrintList(){
+        var Node temp;
+        var bool flag;
+        let flag = true;
+        let temp = First;
+        while(flag){
+            if(temp = Last){
+                let flag = false;
+            }
+            else{
+                do Output.printInt(temp.GetValue());
+                do Output.printString(" ");
+                let temp = temp.GetNext();
+            }
+        }
+        do Output.printInt(temp.GetValue());
+        do Output.printString(" ");
+        do Output.println();
+        return;
+    }
+
+    method int GetCapacity(){
+        return Capacity;
+    }
+
+    method void Dispose(){
+        var Node temp, tempNext;
+
+        if(Capacity = 0){
+            do Memory.deAlloc(this);
+            return;
+        }
+
+        while(~(tempNext = Last)){
+            do temp.Dispose();
+            let temp = tempNext;
+            let tempNext = tempNext.GetNext();
+        }
+
+        do temp.Dispose();
+        do tempNext.Dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+}

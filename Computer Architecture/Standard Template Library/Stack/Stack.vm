@@ -1,0 +1,239 @@
+function Stack.new 0
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 0
+pop this 1
+push this 0
+call Array.new 1
+pop this 2
+push pointer 0
+return
+function Stack.Push 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Stack.Full 1
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 13
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 107
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 106
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 0
+return
+goto IF_END0
+label IF_FALSE0
+push this 1
+push this 2
+add
+push argument 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 1
+push constant 1
+add
+pop this 1
+push constant 0
+return
+label IF_END0
+function Stack.Pop 1
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push pointer 0
+call Stack.Empty 1
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 16
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 107
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 106
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 122
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+return
+goto IF_END0
+label IF_FALSE0
+push this 1
+push constant 1
+sub
+pop this 1
+label IF_END0
+push constant 0
+return
+function Stack.Peek 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Stack.Empty 1
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 16
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 107
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 106
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 122
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+return
+goto IF_END0
+label IF_FALSE0
+push this 1
+push constant 1
+sub
+push this 2
+add
+pop pointer 1
+push that 0
+return
+label IF_END0
+function Stack.Full 1
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push this 1
+push this 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+pop local 0
+label IF_FALSE0
+push local 0
+return
+function Stack.Empty 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+return
+label IF_FALSE0
+push constant 0
+return
+function Stack.GetSize 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Stack.GetCapacity 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Stack.Dispose 0
+push argument 0
+pop pointer 0
+push this 2
+call Array.Dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

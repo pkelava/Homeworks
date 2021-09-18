@@ -1,0 +1,42 @@
+#ifndef F_CPU
+#define F_CPU 16000000UL
+#endif
+
+#include <avr/io.h>
+#include <util/delay.h>
+#include <avr/interrupt.h>
+#include <stdbool.h>
+#include "serial.h"
+
+volatile bool beep = false;
+
+ISR(ANALOG_COMP_vect)
+{
+	if(ACSR & (1 << ACO))
+		beep = true;
+	else
+		beep = false;
+}
+
+int main(void)
+{
+	uart_init();
+	sei();
+	//toggle
+	ACSR &= ~(1 << ACIS0);
+	ACSR &= ~(1 << ACIS1);
+	// analog comparator enabled
+	ACSR |= (1 << ACIE);
+	// set pin 4 to output
+	DDRD |= (1 << DDD4);
+	_delay_ms(100);
+
+	while (1)
+	{
+		while(beep == true){
+			PORTD ^= (1 << PORTD4);
+			_delay_ms(100);
+		}
+		PORTD &= ~(1 << PORTD4);
+	}
+}

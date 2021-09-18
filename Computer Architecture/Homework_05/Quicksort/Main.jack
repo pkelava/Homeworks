@@ -1,0 +1,22 @@
+class Main{
+	function void main(){
+		var int a, i;
+		var Quicksort sort;
+		var Array b;
+		let a = Keyboard.readInt("Odaberi duljinu polja: ");
+		let b = Array.new(a);
+		let i = 0;
+		while(i < a){
+			let b[i] = Keyboard.readInt("Odaberi element polja: ");
+			let i = i + 1;
+		}
+		let sort = Quicksort.new(b,a);
+		do sort.print(a);
+		do sort.dispose();
+		return;
+	}
+	
+	
+	
+	
+}

@@ -1,0 +1,86 @@
+class Queue{
+    field int Size;
+    field int Capacity;
+    field int Position;
+    field Array A;
+
+    constructor Queue new(int newSize){
+        let Size = newSize;
+        let Capacity = 0;
+        let Position = 0;
+        let A = Array.new(Size);
+        return this;
+    }
+
+    method void Enqueue(int insertInt){
+        if(Full()){
+            do Output.printString("Queue je pun!");
+            do Output.println();
+        }
+        else{
+            if(Position = Size){
+                let Position = 0;
+            }
+            let A[Position] = insertInt;
+            let Capacity = Capacity + 1;
+            let Position = Position + 1;
+
+        }
+        return;
+    }
+
+    method void Dequeue(){
+        if(Empty()){
+            do Output.printString("Queue je prazan!");
+            do Output.println();
+        }
+        else{
+            let Capacity = Capacity - 1;
+            let Position = Position - 1;
+            if(Position < 0){
+                let Position = Size;
+            }
+        }
+        return;
+    }
+
+    method int Peek(){
+        if(Empty()){
+            do Output.printString("Queue je prazan!");
+            do Output.println();
+            return 0;
+        }
+        else{
+            return A[Position-1];
+        }
+    }
+
+    method bool Full(){
+        if(Capacity = Size){
+            return true;
+        }
+        return false;
+    }
+
+    method bool Empty(){
+        if(Capacity = 0){
+            return true;
+        }
+        return false;
+    }
+
+    method int GetSize(){
+        return Size;
+    }
+    method int GetCapacity(){
+        return Capacity;
+    }
+
+    method void Dispose(){
+        do A.Dispose();
+        do Memory.DeAlloc(this);
+        return;
+    }
+
+
+}

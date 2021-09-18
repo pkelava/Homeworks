@@ -1,0 +1,84 @@
+class Node{
+    field Node LeftChild, RightChild, Parent;
+    field int Value;
+    field bool HasLeftChild, HasRightChild, IsRoot;
+
+    constructor Node new(int value, bool isRoot){
+        let Value = value;
+        let IsRoot = isRoot;
+        let HasLeftChild = false;
+        let HasRightChild = false;
+        return this;
+    }
+
+    method int GetValue(){
+        return Value;
+    }
+
+    method void SetValue(int newValue){
+        let Value = newValue;
+        return;
+    }
+
+    method bool IsRoot(){
+        return IsRoot;
+    }
+
+    method void SetRoot(){
+        let IsRoot = true;
+        return;
+    }
+
+    method void SetRight(Node newNode){
+        let RightChild = newNode;
+        let HasRightChild = true;
+        return;
+    }
+
+    method void SetLeft(Node newNode){
+        let LeftChild = newNode;
+        let HasLeftChild = true;
+        return;
+    }
+
+    method void SetParent(Node parent){
+        let Parent = parent;
+        return;
+    }
+
+    method bool RightChildExists(){
+        return HasRightChild;
+    }
+
+    method bool LeftChildExists(){
+        return HasLeftChild;
+    }
+
+    method Node GetRightChild(){
+        return RightChild;
+    }
+    
+    method Node GetLeftChild(){
+        return LeftChild;
+    }
+
+    method Node GetParent(){
+        return Parent;
+    }
+
+    method void RemoveRight(){
+        let HasRightChild = false;
+        return;
+    }
+
+    method void RemoveLeft(){
+        let HasLeftChild = false;
+        return;
+    }
+
+    method void Dispose(){
+        
+        do Memory.deAlloc(this);
+        return;
+    }
+}

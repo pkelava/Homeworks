@@ -1,0 +1,44 @@
+class Main{
+    function void main(){
+        var Vector A;
+        let A = Vector.new();
+        do Output.printString("Prije unosa: ");
+        do Output.println();
+        do Output.printString("Size: ");
+        do Output.printInt(A.GetSize());
+        do Output.println();
+        do Output.printString("Capacity: ");
+        do Output.printInt(A.GetCapacity());
+        do Output.println();
+
+        do Output.printString("Nakon prvog unosa: ");
+        do Output.println();
+        do A.PushBack(1);
+        do Output.printString("Size: ");
+        do Output.printInt(A.GetSize());
+        do Output.println();
+        do Output.printString("Capacity: ");
+        do Output.printInt(A.GetCapacity());
+        do Output.println();
+
+        do Output.printString("Nakon drugog unosa: ");
+        do Output.println();
+        do A.PushBack(2);
+        do Output.printString("Size: ");
+        do Output.printInt(A.GetSize());
+        do Output.println();
+        do Output.printString("Capacity: ");
+        do Output.printInt(A.GetCapacity());
+        do Output.println();
+
+        do Output.printString("Get(1): ");
+        do Output.printInt(A.Get(1));
+        do Output.println();
+        
+        do Output.printString("Set(1,5) & Get(1): ");
+        do A.Set(1, 5);
+        do Output.printInt(A.Get(1));
+        do Output.println();
+        return;
+    }
+}

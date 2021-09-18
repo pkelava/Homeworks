@@ -1,0 +1,158 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: left;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+th {
+    padding: 0 5px;
+    width: 200px;
+    font-size: x-small;
+    color:  rgb(229,229,229);
+}
+
+td{
+    padding: 10px 10px;
+    font-weight: bold;    
+    font-size: small;
+}
+
+.main{
+    font-family: helvetica;
+    display: flex;
+    text-align: center;
+    font-weight: bolder;
+}
+
+
+
+.button{
+    font-size: small;
+    float: right;
+    padding: 10px 10px;
+    border-radius: 5px;
+    color: white; 
+    font-weight: bold;
+    background-color: red;
+}
+
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 30px;
+    text-align: left;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    font-weight: 100;
+    width: 100%;
+    color: rgb(109,110,112);
+    background-color: white;
+}
+
+.sidebargray{
+    width : 11%;
+    height : 100vh;
+    background-color: rgb(51,59,70);
+    color: rgb(195,200,201);
+}
+
+.sidebarblue{
+    font-family: helvetica;
+    width : 11%;
+    height : 100vh;
+    background-color:rgb(68,124,172);
+    color: rgb(245,255,255);
+}
+
+.graynav{
+    padding: 20px 10px;
+    text-align: left;
+    border-bottom: 3px solid rgb(38,44,54);
+}
+
+.bluenav{
+    padding: 25px 10px;
+    text-align: left;
+    border-bottom: 3px solid rgb(62,118,168);
+}
+
+.graylist{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    
+}
+
+.graylist li {
+    padding: 20px 0;
+    margin: 0 0 0 10px;
+    border-bottom: 2px solid rgb(38,44,54);
+}
+
+.bluelist{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    
+}
+
+.bluelist li {
+    padding: 20px 20px;
+    border-bottom: 2px solid rgb(62,118,168);
+}
+
+
+.graylist li:hover{
+    background-color: rgb(68,78,92);
+}
+
+p {
+    font-size: 10px;
+    color: rgb(106,167,198);
+}

@@ -1,0 +1,11 @@
+CHIP XORSwap{
+	IN a[16], b[16];
+	OUT c[16], d[16];
+	
+	PARTS:
+	//Napravio sam chip Xor16, koji sam dodao u built in chipove od nand2tetris, takodjer sam poslao taj chip u fileu
+	Xor16(in=a,in2=b,out=o1);
+	Xor16(in=o1,in2=b,out=d);
+	Xor16(in=o1,in2=b,out=o2);
+	Xor16(in=o1,in2=o2,out=c);
+}

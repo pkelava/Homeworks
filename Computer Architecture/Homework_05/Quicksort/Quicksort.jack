@@ -1,0 +1,67 @@
+class Quicksort{
+	field Array polje;
+	field int size;
+	constructor Quicksort new(Array a,int b){
+		var int i;
+		let polje = Array.new(b);
+		let i = 0;
+		let size = b;
+		while(i < b){
+			let polje[i] = a[i];
+			let i = i + 1;
+		}
+		do quicksort(0, b-1);
+		return this;
+	}
+	
+	method void dispose(){
+		do Memory.deAlloc(this);
+		return;
+	}
+
+
+	method void quicksort(int a, int b){
+		var int q;
+		if(a < b){
+			let q = partition(a,b);
+			do quicksort(a,q-1);
+			do quicksort(q+1,b);
+		}
+		return;
+	}
+	
+	method int partition(int a, int b){
+		var int x, i, j, temp;
+		let x = polje[b];
+		let i = a - 1;
+		let j = a;
+		while(j < 	b){
+			if(polje[j] > x){ }
+			else{
+				let i = i + 1;
+				let temp = polje[i];
+				let polje[i] = polje[j];
+				let polje[j] = temp;
+			}
+			let j = j + 1;
+		}
+		let temp = polje[i+1];
+		let polje[i+1] = polje[b];
+		let polje[b] = temp;
+		return (i+1);
+	}
+	
+	method void print(int b){
+		var int i;
+		let i = 0;
+		while(i < b){
+			do Output.printInt(polje[i]);
+			do Output.printString(" ");
+			let i = i + 1;
+		}
+		return;
+	}
+
+
+
+}

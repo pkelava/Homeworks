@@ -1,0 +1,252 @@
+class BST{
+    field Node Root;
+    field int Capacity;
+
+    constructor BST new(int value){
+        let Root = Node.new(value, true);
+        let Capacity = 1;
+        return this;
+    }
+
+    method void Insert(int value){
+        var Node temp, tempChild, tempInsert;
+        var bool flag;
+        let tempInsert = Node.new(value,false);
+        let flag = true;
+        let temp = Root;
+
+        if(Empty()){
+            let Root = Node.new(value,true);
+            return;
+        }
+
+        while(flag){
+            if(temp.GetValue() > value){
+                if(temp.LeftChildExists()){
+                    let temp = temp.GetLeftChild();
+                }
+                else{
+                    do temp.SetLeft(tempInsert);
+                    let tempChild = temp.GetLeftChild();
+                    do tempChild.SetParent(temp);
+                    let Capacity = Capacity + 1;
+                    let flag = false;
+                }
+            }
+            else{
+               if(temp.RightChildExists()){
+                    let temp = temp.GetRightChild();
+                }
+                else{
+                    do temp.SetRight(tempInsert);
+                    let tempChild = temp.GetRightChild();
+                    do tempChild.SetParent(temp);
+                    let Capacity = Capacity + 1;
+                    let flag = false;
+                } 
+            }
+        }
+        return;
+    }
+
+    method Node Search(int value){
+        var Node temp, toReturn;
+        var bool flag;
+        let flag = true;
+        let temp = Root;
+
+        if(Empty()){
+            do Output.printString("Stablo je prazno.");
+            return toReturn;
+        }
+
+        while(flag){
+            if(temp.GetValue() > value){
+                if(temp.LeftChildExists()){
+                    let temp = temp.GetLeftChild();
+                }
+                else{
+                    let flag = false;
+                    do Output.printString("Ne postoji takav Node.");
+                }
+            }
+            else{
+                if(temp.GetValue() < value){
+                    if(temp.RightChildExists()){
+                        let temp = temp.GetRightChild();
+                    }
+                    else{
+                        let flag = false;
+                        do Output.printString("Ne postoji takav Node.");
+                    }
+                }
+                else{
+                    let flag = false;
+                    let toReturn = temp;
+                }
+            }
+        }
+
+        return toReturn;
+    }
+
+    method void Delete(int value){
+        var Node toDelete, tempNode, tempNodeParent, tempNodeRight, tempNodeLeft, tempNodeParentChild;
+        var int tempValue;
+        
+        let toDelete = Search(value);
+
+        if(toDelete = null){
+            return;
+        }
+
+        if(toDelete.LeftChildExists() = false){
+            if(toDelete.RightChildExists() = false){
+                let tempNodeParent = toDelete.GetParent();
+                let tempNodeParentChild = tempNodeParent.GetLeftChild();
+                if(tempNodeParentChild.GetValue() = toDelete.GetValue()){
+                    do tempNodeParent.RemoveLeft();
+                }
+                else{
+                    do tempNodeParent.RemoveRight();
+                }
+                let Capacity = Capacity - 1;
+                do toDelete.Dispose();
+                return;
+            }
+        }
+
+        if(toDelete.LeftChildExists() = false){
+            if(toDelete.IsRoot()){
+                let Root = toDelete.GetRightChild();
+                do Root.SetRoot();
+                let Capacity = Capacity - 1;
+                do toDelete.Dispose();
+                return;
+            }
+            else{
+                let tempNodeParent = toDelete.GetParent();
+                let tempNodeRight = toDelete.GetRightChild();
+                let tempNodeParentChild = tempNodeParent.GetLeftChild();
+                
+                if(tempNodeParentChild.GetValue() = toDelete.GetValue()){
+                    do tempNodeParent.SetLeft(tempNodeRight);
+                    do tempNodeRight.SetParent(tempNodeParent);
+                }
+                else{
+                    do tempNodeParent.SetRight(tempNodeRight);
+                    do tempNodeRight.SetParent(tempNodeParent);
+                }
+                let Capacity = Capacity - 1;
+                do toDelete.Dispose();
+                return;
+            }
+        }
+
+        if(toDelete.RightChildExists() = false){
+            if(toDelete.IsRoot()){
+                let Root = toDelete.GetLeftChild();
+                do Root.SetRoot();
+                let Capacity = Capacity - 1;
+                do toDelete.Dispose();
+                return;
+            }
+            else{
+                let tempNodeParent = toDelete.GetParent();
+                let tempNodeLeft = toDelete.GetLeftChild();
+                let tempNodeParentChild = tempNodeParent.GetLeftChild();
+                
+                if(tempNodeParentChild.GetValue() = toDelete.GetValue()){
+                    do tempNodeParent.SetLeft(tempNodeLeft);
+                    do tempNodeLeft.SetParent(tempNodeParent);
+                }
+                else{
+                    do tempNodeParent.SetRight(tempNodeLeft);
+                    do tempNodeLeft.SetParent(tempNodeParent);
+                }
+                let Capacity = Capacity - 1;
+                do toDelete.Dispose();
+                return;
+            }
+        }
+
+        let tempNode = InorderSuccessor(toDelete.GetRightChild());
+        let tempNodeParent = tempNode.GetParent();
+        if(tempNode.RightChildExists() = true){
+            do tempNodeParent.SetRight(tempNode.GetRightChild());
+            let tempNodeRight = tempNode.GetRightChild();
+            do tempNodeRight.SetParent(tempNodeParent);
+        }
+        else{
+            do tempNodeParent.RemoveRight();
+        }
+
+        
+        let tempValue = tempNode.GetValue();
+        do toDelete.SetValue(tempValue);
+        let Capacity = Capacity - 1;
+        do tempNode.Dispose();
+
+        return;
+    }
+    
+    method Node GetRoot(){
+        return Root;
+    }
+
+    method Node InorderSuccessor(Node tempNode){
+        if(tempNode.LeftChildExists() = true){
+            return InorderSuccessor(tempNode.GetLeftChild());
+        }
+        return tempNode;
+    }
+
+    method bool Empty(){
+        if(Capacity = 0){
+            return true;
+        }
+        return false;
+    }
+
+    method int GetCapacity(){
+        return Capacity;
+    }
+
+    method void Dispose(Node root){
+        var Node temp;
+        let temp = root;
+
+
+        if(temp.LeftChildExists() = true){
+            do Dispose(temp.GetLeftChild());
+        }
+
+        if(temp.RightChildExists() = true){
+            do Dispose(temp.GetRightChild());
+        }
+        do Output.printString("Vrh obrisan.");
+        do Output.println();
+        do temp.Dispose();
+        return;
+    }
+    
+    function void InorderPrint(Node root){
+        var Node temp;
+        let temp = root;
+
+
+        if(temp.LeftChildExists() = true){
+            do BST.InorderPrint(temp.GetLeftChild());
+        }
+
+        do Output.printInt(temp.GetValue());
+        do Output.printString(" ");
+
+        if(temp.RightChildExists() = true){
+            do BST.InorderPrint(temp.GetRightChild());
+        }
+
+        return;
+    }
+
+}

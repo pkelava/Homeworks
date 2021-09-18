@@ -1,0 +1,53 @@
+class Set{
+    field BST MySet;
+
+    constructor Set new(int value){
+        let MySet = BST.new(value);
+        return this;
+    }
+
+    method bool exists(int value){
+        if(MySet.Search(value) = null){
+            return false;
+        }
+        return true;
+    }
+
+    method void Delete(int value){
+        do MySet.Delete(value);
+        return;
+    }
+
+    method void Insert(int value){
+        do MySet.Insert(value);
+        return;
+    }
+
+    method int GetCapacity(){
+        var int temp;
+        let temp = MySet.GetCapacity();
+        return temp;
+    }
+
+    method void Dispose(){
+        var Node temp;
+        let temp = MySet.GetRoot();
+        do MySet.Dispose(temp);
+        return;
+    }
+
+    method BST GetStruct(){
+        return MySet;
+    }
+
+    method void PrintSet(){
+        var Node temp;
+        let temp = MySet.GetRoot();
+        do BST.InorderPrint(temp);
+        return;
+    }
+
+
+
+
+}

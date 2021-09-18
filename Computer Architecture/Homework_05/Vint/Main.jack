@@ -1,0 +1,54 @@
+class Main{
+	function void main(){
+		var Vint a, b;
+		var bool elemnt;
+		var bool eq;
+		let a = Vint.new(3);
+		let b = Vint.new(3);
+		do a.push_back(1);
+		do a.push_back(2);
+		do a.push_back(3);
+		do b.push_back(3);
+		do b.push_back(1);
+		do b.push_back(2);
+		do a.print();
+		do b.print();
+		if(a.is_eq(b)){
+			do Output.printString("Polja su ista");
+			do Output.printChar(String.newLine());
+		}
+		else{
+			do Output.printString("Polja nisu ista");
+			do Output.printChar(String.newLine());
+		}
+		if(a.elems(b)){
+			do Output.printString("Polja sadrze iste znakove");
+			do Output.printChar(String.newLine());
+		}
+		else{
+			do Output.printString("Polja ne sadrze iste znakove");
+			do Output.printChar(String.newLine());
+		}
+		do a.push_back(1);
+		do b.push_back(2);
+		do a.print();
+		do b.print();
+		if(a.is_eq(b)){
+			do Output.printString("Polja su ista");
+			do Output.printChar(String.newLine());
+		}
+		else{
+			do Output.printString("Polja nisu ista");
+			do Output.printChar(String.newLine());
+		}
+		if(a.elems(b)){
+			do Output.printString("Polja sadrze iste znakove");
+			do Output.printChar(String.newLine());
+		}
+		else{
+			do Output.printString("Polja ne sadrze iste znakove");
+			do Output.printChar(String.newLine());
+		}
+		return;
+	}
+}

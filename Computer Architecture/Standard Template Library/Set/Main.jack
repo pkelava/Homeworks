@@ -1,0 +1,20 @@
+class Main{
+    function void main(){
+
+        
+        var Set A;
+        let A = Set.new(15);
+        do A.Insert(10);
+        do A.Insert(7);
+        do A.Insert(5);
+        do A.Insert(12);
+        do A.Insert(13);
+        do A.Insert(20);
+        do A.Insert(17);
+        do A.Insert(16);
+        do A.Insert(22);
+        do A.Insert(25);
+        do A.PrintSet();
+        return;
+    }
+}

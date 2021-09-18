@@ -1,0 +1,366 @@
+class Game{
+    field Array GameField;
+    field Tetronimo Tetro;
+    field int X1,X2,Y1,Y2;
+    field int Direction, Row, Column, GameSpeed, ActiveTetronimo, NextTetronimo, SavedTetronimo, Score, PrevScore;
+    field MyMath MathMethods;
+    field bool IsSaved;
+
+    constructor Game new (){
+        let GameField = Array.new(576);
+        let Row = 0;
+        let Column = 0;
+        let GameSpeed = 150;
+        let Score = 0;
+        let PrevScore = 0;
+        let ActiveTetronimo = 2;
+        let MathMethods = MyMath.new();
+        let IsSaved = false;
+
+        return this;
+    }
+
+    method void Menu(){
+        var int key, i;
+        let i = 0;
+
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0,0,511,255);
+        do Screen.setColor(true);
+
+        while(i < 576){
+            let GameField[i] = 0;
+            let i = i + 1;
+        }
+        let key = 0;
+        do Output.moveCursor(3,20);
+        do Output.printString("To move left press left arrow");
+        do Output.moveCursor(7,20);
+        do Output.printString("To move right press right arrow");
+        do Output.moveCursor(11,20);
+        do Output.printString("To rotate press up arrow");
+        do Output.moveCursor(15,20);
+        do Output.printString("To save a tetronimo press down arrow");
+        do Output.moveCursor(17,20);
+        do Output.printString("Once tetronimo is saved,");
+        do Output.moveCursor(18,20);
+        do Output.printString("press down arrow again to unload it");
+        do Output.moveCursor(20,20);
+        do Output.printString("Press right arrow to continue");
+        do Output.println();
+        while(key = 0){
+            let key = Keyboard.keyPressed();
+            if(key = 132){
+                do Screen.setColor(false);
+                do Screen.drawRectangle(0,0,511,255);
+                do Screen.setColor(true);
+                do Sys.wait(250);
+                do Options();
+            }
+            if(~(key = 132)){
+                let key = 0;
+            }
+        }
+        return;
+    }
+
+    method void Options(){
+        var string speed;
+        var int key;
+        let speed = 3;
+        let key = 0;
+        do Output.moveCursor(5,8);
+        let ActiveTetronimo = Keyboard.readInt("Please insert a random number larger than 0: ");
+
+        do Output.moveCursor(15,8);
+        let speed = Keyboard.readInt("Set speed from 1-5: ");
+        
+        if(speed < 2){
+            let GameSpeed = 250;
+        }
+        if(speed = 2){
+            let GameSpeed = 200;
+        }
+        if(speed = 3){
+            let GameSpeed = 150;
+        }
+        if(speed = 4){
+            let GameSpeed = 100;
+        }
+        if(speed > 4){
+            let GameSpeed = 50;
+        }
+
+
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0,0,511,255);
+        do Screen.setColor(true);
+        do Run();
+        return;
+    }
+
+    method void Run(){
+        var char key;
+        var boolean exit, flag, createTetro;
+        var int i;
+        let exit = false;
+        let flag = true;
+        let createTetro = true;
+
+        do Output.moveCursor(3,3);
+        do Output.printString("Score:");
+        do Output.moveCursor(4,5);
+        do Output.printInt(Score);
+
+
+        do Screen.drawLine(134,0,134,240);
+        do Screen.drawLine(376,0,376,240);        
+        do Screen.drawLine(134,240,376,240);
+
+        do Output.moveCursor(3,53);
+        do Output.printString("Next:");
+        do Screen.drawLine(422,44,422,86);
+        do Screen.drawLine(462,44,462,86);
+        do Screen.drawLine(422,44,462,44);
+        do Screen.drawLine(422,86,462,86);
+
+        do Output.moveCursor(10,53);
+        do Output.printString("Saved:");
+        do Screen.drawLine(422,122,422,164);
+        do Screen.drawLine(462,122,462,164);
+        do Screen.drawLine(422,122,462,122);
+        do Screen.drawLine(422,164,462,164);
+        do Output.moveCursor(0,0);
+
+        while(~exit){
+            while(key = 0){
+                let i = 0;
+                let flag = true;
+                
+                while(flag){
+                    if(createTetro){
+                        let NextTetronimo = MathMethods.GenerateNumber(ActiveTetronimo);
+                        do DrawNext();
+                        let Tetro = Tetronimo.new(GameField, GameSpeed,ActiveTetronimo + 1);
+                        let createTetro = false;
+                    }
+
+                    let key = Keyboard.keyPressed();
+                    do Sys.wait(1);
+                    let i = i + 1;
+
+                    if(~(key = 0)){
+                        if(key = 130){
+                            if(Tetro.CanMove(GameField,1)){
+                                do Tetro.MoveLeft(GameField);
+                                let i = i + GameSpeed;
+                                let Column = Column - 1;
+                            }
+                        }
+                        if(key = 131){
+                            if(Tetro.CanMove(GameField,4)){
+                                do Tetro.Rotate(GameField);
+                                let i = i + GameSpeed;
+                            }
+                        }
+                        if(key = 132){
+                            if(Tetro.CanMove(GameField,2)){
+                                let X1 = X1 + 1;
+                                do Tetro.MoveRight(GameField);
+                                let i = i + GameSpeed;
+                                let Column = Column + 1;
+                            }
+                        }
+                        if(key = 81){
+                            let key = 1;
+                            let flag = false;
+                            let exit = true; 
+                            do Sys.wait(250);
+                        }
+                        if((key = 133) & (IsSaved = false)){
+                            do SaveTetronimo();
+                        }
+                        if((key = 133) & IsSaved){
+                            do LoadTetronimo();
+                        }
+                        if(key = 133){
+                            let IsSaved = ~IsSaved;
+                        }
+                    }
+                    else{
+                        if(i > (GameSpeed - 1)){
+                            let flag = false;
+                        }
+                    }
+                }
+                if(Tetro.CanMove(GameField,3)){
+                    let Y1 = Y1 + 24;
+                    do Tetro.DropDown(GameField);
+                }
+                else{
+                    if((GameField[0] = 0) & (GameField[1] = 0) & (GameField[2] = 0) & (GameField[3] = 0)){
+                        let Score =  Tetro.CheckForRemoval(GameField,Score);
+                        if(~(PrevScore = Score)){
+                            do Output.moveCursor(4,5);
+                            do Screen.setColor(false);
+                            do Screen.drawRectangle(0,0,133,255);
+                            do Screen.setColor(true);
+                            do Output.moveCursor(3,3);
+                            do Output.printString("Score:");
+                            do Output.moveCursor(4,5);
+                            do Output.printInt(Score);
+                            let PrevScore = Score;
+                        }
+                        do Tetro.Dispose();
+                        let ActiveTetronimo = NextTetronimo;
+                        let createTetro = true;
+                    }
+                    else{
+                        do Output.printString("tu");
+                        let key = 1;
+                        let flag = false;
+                        let exit = true; 
+                    } 
+                } 
+            }
+        }
+
+        do Screen.setColor(false);
+        do Screen.drawRectangle(0,0,511,255);
+        do Screen.setColor(true);
+
+
+        do Output.moveCursor(5,8);
+        do Output.printString("You lost");
+        do Output.moveCursor(10,8);
+        do Output.printString("Press R to replay or Q to exit");
+        let key = 0;
+        while(key = 0){
+            let key = Keyboard.keyPressed();
+            if(key = 82){
+                do Menu();
+            }
+            if(~(key = 81)){
+                let key = 0;
+            }
+        }
+        return;
+    }
+
+    method void LoadTetronimo(){
+        do Screen.setColor(false);
+        do Screen.drawRectangle(423,123,461,163);
+        do Screen.setColor(true);
+        let NextTetronimo = SavedTetronimo;
+        do DrawNext();
+        do Sys.wait(GameSpeed);
+        return ;
+    }
+
+    method void SaveTetronimo(){
+        let SavedTetronimo = NextTetronimo;
+
+        let NextTetronimo = MathMethods.GenerateNumber(NextTetronimo);
+        do DrawNext();
+
+        
+        
+        if((SavedTetronimo + 1) = 1){
+            do Screen.drawRectangle(438,124,446,132);
+            do Screen.drawRectangle(438,134,446,142);
+            do Screen.drawRectangle(438,144,446,152);
+            do Screen.drawRectangle(438,154,446,162);
+        }
+        if((SavedTetronimo + 1) = 3){
+            do Screen.drawRectangle(428,134,436,142);
+            do Screen.drawRectangle(438,134,446,142);
+            do Screen.drawRectangle(438,144,446,152);
+            do Screen.drawRectangle(448,144,456,152);
+        }
+        if((SavedTetronimo + 1) = 2){
+            do Screen.drawRectangle(438,134,446,142);
+            do Screen.drawRectangle(448,134,456,142);
+            do Screen.drawRectangle(438,144,446,152);
+            do Screen.drawRectangle(428,144,436,152);
+        }
+        if((SavedTetronimo + 1) = 4){
+            do Screen.drawRectangle(438,124,446,132);
+            do Screen.drawRectangle(438,134,446,142);
+            do Screen.drawRectangle(438,154,446,162);
+            do Screen.drawRectangle(448,154,456,162);
+        }
+        if((SavedTetronimo + 1) = 5){
+            do Screen.drawRectangle(438,124,446,132);
+            do Screen.drawRectangle(438,134,446,142);
+            do Screen.drawRectangle(438,144,446,152);
+            do Screen.drawRectangle(428,144,436,152);
+        }
+        if((SavedTetronimo + 1) = 6){
+            do Screen.drawRectangle(428,134,436,142);
+            do Screen.drawRectangle(438,134,446,142);
+            do Screen.drawRectangle(448,134,456,142);
+            do Screen.drawRectangle(438,144,446,152);
+        }
+        if((SavedTetronimo + 1) = 7){
+            do Screen.drawRectangle(434,134,442,142);
+            do Screen.drawRectangle(444,134,452,142);
+            do Screen.drawRectangle(434,144,442,152);
+            do Screen.drawRectangle(444,144,452,152);
+        }
+        do Sys.wait(GameSpeed);
+        return;
+    }
+
+    method void DrawNext(){
+        do Screen.setColor(false);
+        do Screen.drawRectangle(423,45,461,85);
+        do Screen.setColor(true);
+        
+        if((NextTetronimo + 1) = 1){
+            do Screen.drawRectangle(438,46,446,54);
+            do Screen.drawRectangle(438,56,446,64);
+            do Screen.drawRectangle(438,66,446,74);
+            do Screen.drawRectangle(438,76,446,84);
+        }
+        if((NextTetronimo + 1) = 3){
+            do Screen.drawRectangle(428,56,436,64);
+            do Screen.drawRectangle(438,56,446,64);
+            do Screen.drawRectangle(438,66,446,74);
+            do Screen.drawRectangle(448,66,456,74);
+        }
+        if((NextTetronimo + 1) = 2){
+            do Screen.drawRectangle(438,56,446,64);
+            do Screen.drawRectangle(448,56,456,64);
+            do Screen.drawRectangle(438,66,446,74);
+            do Screen.drawRectangle(428,66,436,74);
+        }
+        if((NextTetronimo + 1) = 4){
+            do Screen.drawRectangle(438,46,446,54);
+            do Screen.drawRectangle(438,56,446,64);
+            do Screen.drawRectangle(438,66,446,74);
+            do Screen.drawRectangle(448,66,456,74);
+        }
+        if((NextTetronimo + 1) = 5){
+            do Screen.drawRectangle(438,46,446,54);
+            do Screen.drawRectangle(438,56,446,64);
+            do Screen.drawRectangle(438,66,446,74);
+            do Screen.drawRectangle(428,66,436,74);
+        }
+        if((NextTetronimo + 1) = 6){
+            do Screen.drawRectangle(428,56,436,64);
+            do Screen.drawRectangle(438,56,446,64);
+            do Screen.drawRectangle(448,56,456,64);
+            do Screen.drawRectangle(438,66,446,74);
+        }
+        if((NextTetronimo + 1) = 7){
+            do Screen.drawRectangle(434,56,442,64);
+            do Screen.drawRectangle(444,56,452,64);
+            do Screen.drawRectangle(434,66,442,74);
+            do Screen.drawRectangle(444,66,452,74);
+        }
+        
+        return;
+    }
+
+}
+

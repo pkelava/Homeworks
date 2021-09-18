@@ -1,0 +1,113 @@
+function Node.new 0
+push constant 7
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 3
+push argument 1
+pop this 6
+push constant 0
+pop this 4
+push constant 0
+pop this 5
+push pointer 0
+return
+function Node.GetValue 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function Node.SetValue 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 3
+push constant 0
+return
+function Node.IsRoot 0
+push argument 0
+pop pointer 0
+push this 6
+return
+function Node.SetRoot 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+pop this 6
+push constant 0
+return
+function Node.SetRight 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 1
+push constant 0
+not
+pop this 5
+push constant 0
+return
+function Node.SetLeft 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 0
+push constant 0
+not
+pop this 4
+push constant 0
+return
+function Node.SetParent 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 2
+push constant 0
+return
+function Node.RightChildExists 0
+push argument 0
+pop pointer 0
+push this 5
+return
+function Node.LeftChildExists 0
+push argument 0
+pop pointer 0
+push this 4
+return
+function Node.GetRightChild 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Node.GetLeftChild 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Node.GetParent 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function Node.RemoveRight 0
+push argument 0
+pop pointer 0
+push constant 0
+pop this 5
+push constant 0
+return
+function Node.RemoveLeft 0
+push argument 0
+pop pointer 0
+push constant 0
+pop this 4
+push constant 0
+return
+function Node.Dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

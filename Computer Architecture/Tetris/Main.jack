@@ -1,0 +1,9 @@
+class Main{
+    function void main(){
+        var Game A;
+        
+        let A = Game.new();
+        do A.Menu();
+        return;
+    }
+}

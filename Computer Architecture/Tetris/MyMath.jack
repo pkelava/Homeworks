@@ -1,0 +1,29 @@
+class MyMath{
+    field int temp;
+    constructor MyMath new(){
+        let temp = 1;
+        return this;
+    }
+
+
+    method int Modulo(int a, int b){
+        var int c;
+        let c = a / b;
+        let c = a - (b*c);
+        return c;
+    }
+
+    method int GenerateNumber(int activeTetronimo){
+        var int multiplier, increment, temp, ActiveTetronimo;
+        let multiplier = 5;
+        let increment = 3;
+
+        let temp = ((multiplier*activeTetronimo) + increment);
+        let ActiveTetronimo = Modulo(temp,8);
+        if(ActiveTetronimo = 7){
+            return GenerateNumber(ActiveTetronimo);
+        } 
+        return ActiveTetronimo;
+    }
+
+}

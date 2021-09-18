@@ -1,0 +1,82 @@
+class Stack{
+    field int Size;
+    field int Capacity;
+    field Array A;
+
+    constructor Stack new(int newSize){
+        let Size = newSize;
+        let Capacity = 0;
+        let A = Array.new(Size);
+
+        return this;
+    }
+
+    method void Push(int insertInt){
+        if(Full()){
+            do Output.printString("Stack je pun!");
+            do Output.println();
+            return;
+        }
+        else{
+
+            let A[Capacity] = insertInt;
+            let Capacity = Capacity + 1;
+
+            return;
+        }
+    }
+
+    method void Pop(){
+        var int i;
+
+        let i = 0;
+        if(Empty()){
+            do Output.printString("Stack je prazan!");
+            return;
+        }
+        else{
+            let Capacity = Capacity - 1;
+        } 
+        return;
+    }
+
+    method int Peek(){
+        if(Empty()){
+            do Output.printString("Stack je prazan!");
+            return 0;
+        }
+        else{
+            return A[Capacity-1];
+        }
+    }
+
+    method bool Full(){
+        var bool flag;
+        let flag = false;
+        if(Capacity = Size){
+            let flag = true;
+        }
+        return flag;
+    }
+
+    method bool Empty(){
+        if(Capacity = 0){
+            return true;
+        }
+        return false;
+    }
+
+    method int GetSize(){
+        return Size;
+    }
+
+    method int GetCapacity(){
+        return Capacity;
+    }
+
+    method void Dispose(){
+        do A.Dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+}

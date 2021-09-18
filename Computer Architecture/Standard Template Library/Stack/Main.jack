@@ -1,0 +1,70 @@
+class Main{
+    function void main(){
+        var Stack A;
+
+        let A = Stack.new(5);
+        do A. Pop();
+        do Output.println();
+        do Output.printString("Prije unosa: ");
+        do Output.println();
+        do Output.printString("Size: ");
+        do Output.printInt(A.GetSize());
+        do Output.println();
+        do Output.printString("Capacity: ");
+        do Output.printInt(A.GetCapacity());
+        do Output.println();
+
+        do Output.printString("Push(2)");
+        do Output.println();
+        do Output.printString("Push(5)");
+        do Output.println();
+        do Output.printString("Push(7)");
+        do Output.println();
+        do Output.printString("Push(9)");
+        do Output.println();
+        do A.Push(2);
+        do A.Push(5);
+        do A.Push(7);
+        do A.Push(9);
+        do Output.printString("Push(11)");
+        do Output.println();
+        do A.Push(11);
+        do Output.printString("Push(13)");
+        do Output.println();
+        do A.Push(13);
+
+
+        do Output.printString("Poslje unosa: ");
+        do Output.println();
+        do Output.printString("Size: ");
+        do Output.printInt(A.GetSize());
+        do Output.println();
+        do Output.printString("Capacity: ");
+        do Output.printInt(A.GetCapacity());
+        do Output.println();
+
+        do Output.printString("Peek: ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+        do Output.printString("Pop()");
+        do A.Pop();
+        do Output.println();
+        do Output.printString("Peek: ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+        do Output.printString("Pop()");
+        do A.Pop();
+        do Output.println();
+        do Output.printString("Peek: ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+        do Output.printString("Pop()");
+        do A.Pop();
+        do Output.println();
+        do Output.printString("Push(13)");
+        do A.Push(13);
+        do Output.printString("Peek: ");
+        do Output.printInt(A.Peek());
+        return;
+    }
+}

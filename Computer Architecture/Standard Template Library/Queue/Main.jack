@@ -1,0 +1,109 @@
+class Main{
+    function void main(){
+        var Queue A;
+
+
+        do Output.printString("Napravljen queue velicine 5.");
+        do Output.println();
+        let A = Queue.new(5);
+
+        do Output.printString("Size: ");
+        do Output.printInt(A.GetSize());
+        do Output.printString(" - Capacity: ");
+        do Output.printInt(A.GetCapacity());
+        do Output.println();
+
+        do Output.printString("Enquamo: 1,2,3,4,5 i sad je queue pun.");
+        do Output.println();
+        do A.Enqueue(1);
+        do A.Enqueue(2);
+        do A.Enqueue(3);
+        do A.Enqueue(4);
+        do A.Enqueue(5);
+
+        do Output.printString("Size: ");
+        do Output.printInt(A.GetSize());
+        do Output.printString(" - Capacity: ");
+        do Output.printInt(A.GetCapacity());
+        do Output.println();
+
+        do Output.printString("Pokusamo enquat 6, ali trebalo bi reci da ne mozemo.");
+        do Output.println();
+        do A.Enqueue(6);
+
+        do Output.printString("Size: ");
+        do Output.printInt(A.GetSize());
+        do Output.printString(" - Capacity: ");
+        do Output.printInt(A.GetCapacity());
+        do Output.println();        
+
+        do Output.printString("Peek: ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+        do Output.printString("Dequamo 3 puta.");
+        do Output.println();
+        do A.Dequeue();
+        do A.Dequeue();
+        do A.Dequeue();
+
+        do Output.printString("Size: ");
+        do Output.printInt(A.GetSize());
+        do Output.printString(" - Capacity: ");
+        do Output.printInt(A.GetCapacity());
+        do Output.println();        
+
+        do Output.printString("Peek: ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+        do Output.printString("Dodamo 6 i 7.");
+        do Output.println();
+        do A.Enqueue(6);
+        do A.Enqueue(7);
+
+        do Output.printString("Size: ");
+        do Output.printInt(A.GetSize());
+        do Output.printString(" - Capacity: ");
+        do Output.printInt(A.GetCapacity());
+        do Output.println();        
+
+        do Output.printString("Peek: ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+        do Output.printString("Dequamo sve.");
+        do Output.println();
+        do A.Dequeue();
+        do A.Dequeue();
+        do A.Dequeue();
+        do A.Dequeue();
+        do Output.printString("Peek: ");
+        do Output.printInt(A.Peek());
+        do Output.println();
+
+        do Output.printString("Size: ");
+        do Output.printInt(A.GetSize());
+        do Output.printString(" - Capacity: ");
+        do Output.printInt(A.GetCapacity());
+        do Output.println();        
+
+        do Output.printString("Enquamo 8,9 i 10.");
+        do Output.println();
+        do A.Enqueue(8);
+        do A.Enqueue(9);
+        do A.Enqueue(10);
+
+        do Output.printString("Size: ");
+        do Output.printInt(A.GetSize());
+        do Output.printString(" - Capacity: ");
+        do Output.printInt(A.GetCapacity());
+        do Output.println();        
+
+        do Output.printString("Peek: "); 
+        do Output.printInt(A.Peek());
+        do Output.println();
+        
+        return;
+    }
+}

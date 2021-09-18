@@ -1,0 +1,669 @@
+function Tetronimo.new 0
+push constant 8
+call Memory.alloc 1
+pop pointer 0
+push argument 2
+pop this 0
+push this 0
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 0
+push argument 1
+call TetronimoI.new 2
+pop this 1
+label IF_FALSE0
+push this 0
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 0
+push argument 1
+call TetronimoS.new 2
+pop this 2
+label IF_FALSE1
+push this 0
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push argument 0
+push argument 1
+call TetronimoZ.new 2
+pop this 3
+label IF_FALSE2
+push this 0
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push argument 0
+push argument 1
+call TetronimoL.new 2
+pop this 4
+label IF_FALSE3
+push this 0
+push constant 5
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push argument 0
+push argument 1
+call TetronimoJ.new 2
+pop this 5
+label IF_FALSE4
+push this 0
+push constant 6
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push argument 0
+push argument 1
+call TetronimoT.new 2
+pop this 6
+label IF_FALSE5
+push this 0
+push constant 7
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push argument 0
+push argument 1
+call TetronimoO.new 2
+pop this 7
+label IF_FALSE6
+push pointer 0
+return
+function Tetronimo.MoveRight 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 1
+push argument 1
+call TetronimoI.MoveRight 2
+pop temp 0
+label IF_FALSE0
+push this 0
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 2
+push argument 1
+call TetronimoS.MoveRight 2
+pop temp 0
+label IF_FALSE1
+push this 0
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 3
+push argument 1
+call TetronimoZ.MoveRight 2
+pop temp 0
+label IF_FALSE2
+push this 0
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 4
+push argument 1
+call TetronimoL.MoveRight 2
+pop temp 0
+label IF_FALSE3
+push this 0
+push constant 5
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 5
+push argument 1
+call TetronimoJ.MoveRight 2
+pop temp 0
+label IF_FALSE4
+push this 0
+push constant 6
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 6
+push argument 1
+call TetronimoT.MoveRight 2
+pop temp 0
+label IF_FALSE5
+push this 0
+push constant 7
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push this 7
+push argument 1
+call TetronimoO.MoveRight 2
+pop temp 0
+label IF_FALSE6
+push constant 0
+return
+function Tetronimo.DropDown 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 1
+push argument 1
+call TetronimoI.DropDown 2
+pop temp 0
+label IF_FALSE0
+push this 0
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 2
+push argument 1
+call TetronimoS.DropDown 2
+pop temp 0
+label IF_FALSE1
+push this 0
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 3
+push argument 1
+call TetronimoZ.DropDown 2
+pop temp 0
+label IF_FALSE2
+push this 0
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 4
+push argument 1
+call TetronimoL.DropDown 2
+pop temp 0
+label IF_FALSE3
+push this 0
+push constant 5
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 5
+push argument 1
+call TetronimoJ.DropDown 2
+pop temp 0
+label IF_FALSE4
+push this 0
+push constant 6
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 6
+push argument 1
+call TetronimoT.DropDown 2
+pop temp 0
+label IF_FALSE5
+push this 0
+push constant 7
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push this 7
+push argument 1
+call TetronimoO.DropDown 2
+pop temp 0
+label IF_FALSE6
+push constant 0
+return
+function Tetronimo.MoveLeft 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 1
+push argument 1
+call TetronimoI.MoveLeft 2
+pop temp 0
+label IF_FALSE0
+push this 0
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 2
+push argument 1
+call TetronimoS.MoveLeft 2
+pop temp 0
+label IF_FALSE1
+push this 0
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 3
+push argument 1
+call TetronimoZ.MoveLeft 2
+pop temp 0
+label IF_FALSE2
+push this 0
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 4
+push argument 1
+call TetronimoL.MoveLeft 2
+pop temp 0
+label IF_FALSE3
+push this 0
+push constant 5
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 5
+push argument 1
+call TetronimoJ.MoveLeft 2
+pop temp 0
+label IF_FALSE4
+push this 0
+push constant 6
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 6
+push argument 1
+call TetronimoT.MoveLeft 2
+pop temp 0
+label IF_FALSE5
+push this 0
+push constant 7
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push this 7
+push argument 1
+call TetronimoO.MoveLeft 2
+pop temp 0
+label IF_FALSE6
+push constant 0
+return
+function Tetronimo.Rotate 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 1
+push argument 1
+call TetronimoI.Rotate 2
+pop temp 0
+label IF_FALSE0
+push this 0
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 2
+push argument 1
+call TetronimoS.Rotate 2
+pop temp 0
+label IF_FALSE1
+push this 0
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 3
+push argument 1
+call TetronimoZ.Rotate 2
+pop temp 0
+label IF_FALSE2
+push this 0
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 4
+push argument 1
+call TetronimoL.Rotate 2
+pop temp 0
+label IF_FALSE3
+push this 0
+push constant 5
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 5
+push argument 1
+call TetronimoJ.Rotate 2
+pop temp 0
+label IF_FALSE4
+push this 0
+push constant 6
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 6
+push argument 1
+call TetronimoT.Rotate 2
+pop temp 0
+label IF_FALSE5
+push this 0
+push constant 7
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push this 7
+push argument 1
+call TetronimoO.Rotate 2
+pop temp 0
+label IF_FALSE6
+push constant 0
+return
+function Tetronimo.CheckForRemoval 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 1
+push argument 1
+push argument 2
+call TetronimoI.CheckForRemoval 3
+return
+label IF_FALSE0
+push this 0
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 2
+push argument 1
+push argument 2
+call TetronimoS.CheckForRemoval 3
+return
+label IF_FALSE1
+push this 0
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 3
+push argument 1
+push argument 2
+call TetronimoZ.CheckForRemoval 3
+return
+label IF_FALSE2
+push this 0
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 4
+push argument 1
+push argument 2
+call TetronimoL.CheckForRemoval 3
+return
+label IF_FALSE3
+push this 0
+push constant 5
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 5
+push argument 1
+push argument 2
+call TetronimoJ.CheckForRemoval 3
+return
+label IF_FALSE4
+push this 0
+push constant 6
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 6
+push argument 1
+push argument 2
+call TetronimoT.CheckForRemoval 3
+return
+label IF_FALSE5
+push this 0
+push constant 7
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push this 7
+push argument 1
+push argument 2
+call TetronimoO.CheckForRemoval 3
+return
+label IF_FALSE6
+push constant 0
+return
+function Tetronimo.CanMove 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 1
+push argument 1
+push argument 2
+call TetronimoI.CanMove 3
+return
+label IF_FALSE0
+push this 0
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 2
+push argument 1
+push argument 2
+call TetronimoS.CanMove 3
+return
+label IF_FALSE1
+push this 0
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 3
+push argument 1
+push argument 2
+call TetronimoZ.CanMove 3
+return
+label IF_FALSE2
+push this 0
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 4
+push argument 1
+push argument 2
+call TetronimoL.CanMove 3
+return
+label IF_FALSE3
+push this 0
+push constant 5
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 5
+push argument 1
+push argument 2
+call TetronimoJ.CanMove 3
+return
+label IF_FALSE4
+push this 0
+push constant 6
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 6
+push argument 1
+push argument 2
+call TetronimoT.CanMove 3
+return
+label IF_FALSE5
+push this 0
+push constant 7
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push this 7
+push argument 1
+push argument 2
+call TetronimoO.CanMove 3
+return
+label IF_FALSE6
+push constant 0
+return
+function Tetronimo.Dispose 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 1
+call TetronimoI.Dispose 1
+pop temp 0
+label IF_FALSE0
+push this 0
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 2
+call TetronimoS.Dispose 1
+pop temp 0
+label IF_FALSE1
+push this 0
+push constant 3
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 3
+call TetronimoZ.Dispose 1
+pop temp 0
+label IF_FALSE2
+push this 0
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 4
+call TetronimoL.Dispose 1
+pop temp 0
+label IF_FALSE3
+push this 0
+push constant 5
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 5
+call TetronimoJ.Dispose 1
+pop temp 0
+label IF_FALSE4
+push this 0
+push constant 6
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 6
+call TetronimoT.Dispose 1
+pop temp 0
+label IF_FALSE5
+push this 0
+push constant 7
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push this 7
+call TetronimoO.Dispose 1
+pop temp 0
+label IF_FALSE6
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

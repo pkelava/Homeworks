@@ -1,0 +1,15 @@
+class Main{
+    function void main(){
+        var List A;
+        do Output.printString("Ocekivani oblik liste: 4, 2, 1, 3, 5.");
+        do Output.println();
+        let A = List.new(1);
+        do A.InsertFront(2);
+        do A.InsertBack(3);
+        do A.InsertFront(4);
+        do A.InsertBack(5);
+        do A.PrintList();
+
+        return;
+    }
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/Zadatak1.css" >
+    <title>Zadaća1</title>
+</head>
+<body>
+    <div class="main">
+
+        <div class="sidebargray">
+            <nav class=graynav>
+                <img src="./assets/Images/Ok.svg"> Inventura
+            </nav>
+
+            <ul class="graylist"></ul>
+                
+        </div>
+
+        <div class="sidebarblue">
+
+            <nav class=bluenav>
+                2016. godina
+            </nav>
+
+            <p id="sortClasses" style="text-align: right; padding: 5px 10px; border-bottom: 2px solid rgb(62,118,168);"> </p>
+
+            <ul class="bluelist"> </ul>
+        </div>
+
+
+        <div class="content">
+            <nav class="topbar">
+                <h2 style="font-size: xx-large;">Predavaonica 3 </h2>  
+                <span class="button" style="float: inline-end;">Spremi</span>
+            </nav>
+            
+
+            <table style="background-color: #f2f2f2; border-bottom: 2px solid rgb(229,229,229); border-top: 2px solid rgb(229,229,229);">
+                <thead>
+                    <tr>
+                        <th>
+                            Datum inventure
+                        </th>
+                        <th>
+                            Pregledac
+                        </th>
+                        <th>
+                            Broj Potvrda
+                        </th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr>
+                        <td>
+                            02.03.2016. 11:13
+                        </td>
+                        <td>
+                            Neil Armstrong
+                        </td>
+                        <td>
+                            2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            02.03.2016. 11:13
+                        </td>
+                        <td>
+                            Buzz Aldrin
+                        </td>
+                        <td>
+                            3
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table style="background-color: #f2f2f2; border-bottom: 2px solid rgb(229,229,229);">
+                <thead>
+                    <tr>
+                        <th>
+                            Zadnja promjena
+                        </th>
+                        <th>
+                            Promjenio
+                        </th>
+                        <th>
+                            Broj promjena
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            01.03.2016. 11:13
+                        </td>
+                        <td>
+                            Pete Conrad
+                        </td>
+                        <td>
+                            1
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Naziv
+                        </th>
+                        <th>
+                            Očekivano
+                        </th>
+                        <th>
+                            Stanje
+                        </th>
+                        <th>
+                            Uredi
+                        </th>
+                        <th>
+                            Potvrdi
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="height: 50px; border-bottom: 2px solid #e2e2e2d2;">
+                        <td>
+                            Stolica
+                        </td>
+                        <td>
+                            45
+                        </td>
+                        <td>
+                            45
+                        </td>
+                        <td>
+                            <img src="./assets/Images/Edit.svg" width="20" height="20">
+                        </td>
+                        <td>
+                            <input type="checkbox" >
+                        </td>
+                    </tr>
+                    <tr style="height: 50px; border-bottom: 2px solid #e2e2e2d2;">
+                        <td>
+                            Školska ploča
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            <img src="./assets/Images/Edit.svg" width="20" height="20">
+                        </td>
+                        <td>
+                            <input type="checkbox" >
+                        </td>
+                    </tr>
+                    <tr style="height: 50px; border-bottom: 2px solid #e2e2e2d2;">
+                        <td>
+                            Stol za katedrom
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            <img src="./assets/Images/Edit.svg" width="20" height="20">
+                        </td>
+                        <td>
+                            <input type="checkbox" >
+                        </td>
+                    </tr>
+                    <tr style="height: 50px; border-bottom: 2px solid #e2e2e2d2;">
+                        <td>
+                            Projektor
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            <img src="./assets/Images/Edit.svg" width="20" height="20">
+                        </td>
+                        <td>
+                            <input type="checkbox" >
+                        </td>
+                    </tr>
+                    <tr style="height: 50px; border-bottom: 2px solid #e2e2e2d2;">
+                        <td>
+                            Grb
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            <img src="./assets/Images/Edit.svg" width="20" height="20">
+                        </td>
+                        <td>
+                            <input type="checkbox" >
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <script src="./assets/fillMenu.js"> </script>
+        <script src='./assets/fillRooms.js'></script>
+        <script src='./assets/domPath.js'></script>
+    </div>
+</body>
+</html>

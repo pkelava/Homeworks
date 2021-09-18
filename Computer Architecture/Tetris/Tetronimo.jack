@@ -1,0 +1,216 @@
+class Tetronimo {
+
+    field int ActiveTetronimo;
+    field TetronimoI teti;
+    field TetronimoS tets;
+    field TetronimoZ tetz;
+    field TetronimoL tetl;
+    field TetronimoJ tetj;
+    field TetronimoT tett;
+    field TetronimoO teto;
+
+    constructor Tetronimo new (Array gameField, int gameSpeed,int activeTetronimo) {
+        let ActiveTetronimo = activeTetronimo;
+
+        if(ActiveTetronimo = 1){
+            let teti = TetronimoI.new(gameField, gameSpeed);
+        }
+        if(ActiveTetronimo = 2){
+            let tets = TetronimoS.new(gameField,gameSpeed);
+        }
+        if(ActiveTetronimo = 3){
+            let tetz = TetronimoZ.new(gameField,gameSpeed);
+        }
+        if(ActiveTetronimo = 4){
+            let tetl = TetronimoL.new(gameField,gameSpeed);
+        }
+        if(ActiveTetronimo = 5){
+            let tetj = TetronimoJ.new(gameField,gameSpeed);
+        }
+        if(ActiveTetronimo = 6){
+            let tett = TetronimoT.new(gameField,gameSpeed);
+        }
+        if(ActiveTetronimo = 7){
+            let teto = TetronimoO.new(gameField,gameSpeed);
+        }
+        return this;
+    }
+
+    method void MoveRight(Array gameField){
+        if(ActiveTetronimo = 1){
+            do teti.MoveRight(gameField);
+        }
+        if(ActiveTetronimo = 2){
+            do tets.MoveRight(gameField);
+        }
+        if(ActiveTetronimo = 3){
+            do tetz.MoveRight(gameField);
+        }
+        if(ActiveTetronimo = 4){
+            do tetl.MoveRight(gameField);
+        }
+        if(ActiveTetronimo = 5){
+            do tetj.MoveRight(gameField);
+        }
+        if(ActiveTetronimo = 6){
+            do tett.MoveRight(gameField);
+        }
+        if(ActiveTetronimo = 7){
+            do teto.MoveRight(gameField);
+        }
+        return;
+    }
+
+    method void DropDown(Array gameField){
+        if(ActiveTetronimo = 1){
+            do teti.DropDown(gameField);
+        }
+        if(ActiveTetronimo = 2){
+            do tets.DropDown(gameField);
+        }
+        if(ActiveTetronimo = 3){
+            do tetz.DropDown(gameField);
+        }
+        if(ActiveTetronimo = 4){
+            do tetl.DropDown(gameField);
+        }
+        if(ActiveTetronimo = 5){
+            do tetj.DropDown(gameField);
+        }
+        if(ActiveTetronimo = 6){
+            do tett.DropDown(gameField);
+        }
+        if(ActiveTetronimo = 7){
+            do teto.DropDown(gameField);
+        }
+        return;
+    }
+
+    method void MoveLeft(Array gameField){
+        if(ActiveTetronimo = 1){
+            do teti.MoveLeft(gameField);
+        }
+        if(ActiveTetronimo = 2){
+            do tets.MoveLeft(gameField);
+        }
+        if(ActiveTetronimo = 3){
+            do tetz.MoveLeft(gameField);
+        }
+        if(ActiveTetronimo = 4){
+            do tetl.MoveLeft(gameField);
+        }
+        if(ActiveTetronimo = 5){
+            do tetj.MoveLeft(gameField);
+        }
+        if(ActiveTetronimo = 6){
+            do tett.MoveLeft(gameField);
+        }
+        if(ActiveTetronimo = 7){
+            do teto.MoveLeft(gameField);
+        }
+        return;
+    }
+
+    method void Rotate(Array gameField){
+        if(ActiveTetronimo = 1){
+            do teti.Rotate(gameField);
+        }
+        if(ActiveTetronimo = 2){
+            do tets.Rotate(gameField);
+        }
+        if(ActiveTetronimo = 3){
+            do tetz.Rotate(gameField);
+        }
+        if(ActiveTetronimo = 4){
+            do tetl.Rotate(gameField);
+        }
+        if(ActiveTetronimo = 5){
+            do tetj.Rotate(gameField);
+        }
+        if(ActiveTetronimo = 6){
+            do tett.Rotate(gameField);
+        }
+        if(ActiveTetronimo = 7){
+            do teto.Rotate(gameField);
+        }
+        return;
+    }
+
+    method int CheckForRemoval(Array gameField,int Score){
+        if(ActiveTetronimo = 1){
+            return teti.CheckForRemoval(gameField, Score);
+        }
+        if(ActiveTetronimo = 2){
+            return tets.CheckForRemoval(gameField, Score);
+        }
+        if(ActiveTetronimo = 3){
+            return tetz.CheckForRemoval(gameField, Score);
+        }
+        if(ActiveTetronimo = 4){
+            return tetl.CheckForRemoval(gameField, Score);
+        }
+        if(ActiveTetronimo = 5){
+            return tetj.CheckForRemoval(gameField, Score);
+        }
+        if(ActiveTetronimo = 6){
+            return tett.CheckForRemoval(gameField, Score);
+        }
+        if(ActiveTetronimo = 7){
+            return teto.CheckForRemoval(gameField, Score);
+        }
+        return 0;
+    }
+
+    method bool CanMove(Array gameField, int move){
+      if(ActiveTetronimo = 1){
+            return teti.CanMove(gameField,move);
+        }
+        if(ActiveTetronimo = 2){
+            return tets.CanMove(gameField,move);
+        }
+        if(ActiveTetronimo = 3){
+            return tetz.CanMove(gameField,move);
+        }
+        if(ActiveTetronimo = 4){
+            return tetl.CanMove(gameField,move);
+        }
+        if(ActiveTetronimo = 5){
+            return tetj.CanMove(gameField,move);
+        }
+        if(ActiveTetronimo = 6){
+            return tett.CanMove(gameField,move);
+        }
+        if(ActiveTetronimo = 7){
+            return teto.CanMove(gameField,move);
+        }
+        return false;
+    }
+ 
+    
+    method void Dispose(){
+        if(ActiveTetronimo = 1){
+            do teti.Dispose();
+        }
+        if(ActiveTetronimo = 2){
+            do tets.Dispose();
+        }
+        if(ActiveTetronimo = 3){
+            do tetz.Dispose();
+        }
+        if(ActiveTetronimo = 4){
+            do tetl.Dispose();
+        }
+        if(ActiveTetronimo = 5){
+            do tetj.Dispose();
+        }
+        if(ActiveTetronimo = 6){
+            do tett.Dispose();
+        }
+        if(ActiveTetronimo = 7){
+            do teto.Dispose();
+        }
+
+        do Memory.deAlloc(this);
+        return;
+    }
+}

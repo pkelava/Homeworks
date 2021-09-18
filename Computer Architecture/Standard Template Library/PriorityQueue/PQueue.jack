@@ -1,0 +1,127 @@
+class PQueue{
+    field Vector PriorityQueue;
+    field int Capacity;
+
+    constructor PQueue new(int root){
+        let PriorityQueue = Vector.new();
+        do PriorityQueue.ReSize(3);
+
+        //Dva puta pushamo isto jer želimo kretati od 1 a ne od 0
+        do PriorityQueue.PushBack(root);
+        do PriorityQueue.PushBack(root);
+
+        //Capacity je 1 jer PriorityQueue[0] zaprave ne postoji
+        let Capacity = 1;
+        return this;
+    }
+
+    method void Enqueue(int insertInt){
+        var int i, inserted, position, temp;
+        var bool flag;
+        let flag = true;
+        let inserted = insertInt;
+
+        do PriorityQueue.PushBack(inserted);
+        let Capacity = Capacity + 1;
+        let position = Capacity;
+
+        while(flag){
+            if(position = 1){
+                let flag = false;
+            }
+            else{
+                let temp = PriorityQueue.Get(position/2);
+                if(inserted < temp){
+                    let flag = false;
+                }
+                else{
+                    do PriorityQueue.Set(position/2,inserted);
+                    do PriorityQueue.Set(position,temp);
+                    let position = position / 2;
+                }
+            }
+        }
+        return;
+    }
+
+    method void Dequeue(){
+        var int position, i;
+        var bool flag;
+        let flag = true;
+        let i = 1;
+        let position = Capacity;
+        do PriorityQueue.Set(1,PriorityQueue.Get(position));
+
+        
+        while(flag){
+            if(i*2 > Capacity){
+                let flag = false;
+            }
+            else{
+                if((i*2) + 1 > Capacity){
+                    if(leq(PriorityQueue.Get(i),PriorityQueue.Get(i*2))){
+                        do PriorityQueue.Swap(i,i*2);
+                        let i = i*2;
+                    }
+                    else{
+                        let flag = false;
+                    }
+                }
+                else{
+                    if(leq(PriorityQueue.Get(i*2),PriorityQueue.Get((i*2)+1))){
+                        if(leq(PriorityQueue.Get(i),PriorityQueue.Get((i*2)+1))){
+                            do PriorityQueue.Swap(i,(i*2)+1);
+                            let i = (i*2)+1;
+                        }
+                        else{
+                            let flag = false;
+                        }
+                    }
+                    else{
+                        if(leq(PriorityQueue.Get(i),PriorityQueue.Get(i*2))){
+                            do PriorityQueue.Swap(i,i*2);
+                            let i = i*2;
+                        }
+                        else{
+                            let flag = false;
+                        }
+                    }
+                }
+            }
+        }
+
+        do PriorityQueue.PopBack();
+        let Capacity = Capacity - 1;
+        return;
+    }
+
+    method int Peek(){
+        var int temp;
+        if(Capacity < 1){
+            return null;
+        }
+        let temp = PriorityQueue.Get(1);
+        return temp;
+    }
+
+    method int GetCapacity(){
+        return Capacity;
+    }
+
+    method Vector GetStruct(){
+        return PriorityQueue;
+    }
+
+    method void Dispose(){
+        do PriorityQueue.Dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method bool leq(int a, int b){
+        if(a > b){
+            return false;
+        }
+        return true;
+    }
+}

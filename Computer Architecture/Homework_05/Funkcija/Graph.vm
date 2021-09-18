@@ -1,0 +1,11 @@
+function Graph.f 0
+push argument 0
+push argument 0
+call Math.multiply 2
+push constant 4
+push argument 0
+call Math.multiply 2
+sub
+push constant 1
+sub
+return

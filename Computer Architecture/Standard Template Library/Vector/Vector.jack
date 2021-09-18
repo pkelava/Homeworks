@@ -1,0 +1,85 @@
+class Vector{
+	field int Size;
+	field int Capacity;
+	field Array MyVector;
+	
+	constructor Vector new (){
+		let Size = 1;
+		let Capacity = 0;
+		let MyVector = Array.new(Size);
+		return this;
+	}
+
+
+	method void ReSize(int newSize){
+		var int tempSize, i;
+		var Array newVector;
+		var bool flag;
+		let tempSize = 1;
+
+		let flag = leq(tempSize,newSize);
+		while(flag){
+			let tempSize = tempSize * 2;
+			let flag = leq(tempSize,newSize);
+		}
+		let Size = tempSize;
+
+		let newVector = Array.new(Size);
+
+		while(i < Capacity){
+			let newVector[i] = MyVector[i];
+			let i = i + 1;
+		}
+		let MyVector = newVector;
+		return;
+	}
+
+	method int Get(int location){
+		return MyVector[location];
+	}
+
+	method void Set(int location, int inputInt){
+		let MyVector[location] = inputInt;
+		return;
+	}
+
+	method void PushBack(int inputInt){
+		let MyVector[Capacity] = inputInt;
+		let Capacity = Capacity + 1;
+		
+		if(Capacity = Size){
+			do ReSize(Size);
+		}
+		return;
+	}
+
+	method void Dispose(){
+		do MyVector.Dispose();
+		do Memory.deAlloc(this);
+
+		return;
+	}
+
+	method int GetSize(){
+		return Size;
+	}
+
+	method int GetCapacity(){
+		return Capacity;
+	}
+
+	method bool leq(int a, int b){
+		if(a < b){
+			return true;
+		}
+		else{
+			if(a = b){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+	}
+
+}
